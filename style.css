@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background: linear-gradient(90deg,blue 20%, grey 80% );
+}
+.container{
+    text-align: center;
+    padding: 30px;
+    margin: 10px;
+    background: linear-gradient(whitesmoke, grey);
+    box-shadow: 10px 10px 10px;
+    border-radius: 20px;
+
+}
+#click {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+#click:hover{
+    transform: rotateZ('90deg');  
+    transition: all 1s ease-in;  
+}
+input{
+    font-size: 0.9rem;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
+    outline: none;
+}
+#output{
+    padding: 30px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+/* function validateInputs(firstNum, secondNum) {
+    if (isNaN(firstNum) || isNaN(secondNum)) {
+        return 'Input is not a number';
+    }
+    return firstNum - secondNum;
+}
+
+function performCalculation() {
+    let firstNum = document.getElementById('firstNumber').value;
+    let secondNum = document.getElementById('secondNumber').value;
+    let output = document.getElementById('output');
+
+    let result = validateInputs(firstNum, secondNum);
+
+    if (typeof result === 'string') {
+        output.innerHTML = result;
+    } else {
+        output.innerHTML = result;
+    }
+}
+
+let btnCal = document.getElementById('click');
+btnCal.addEventListener('click', performCalculation); */
