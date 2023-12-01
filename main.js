@@ -1,27 +1,35 @@
-let firstNum = document.getElementById('firstNumber')
-let secondNum = document.getElementById('secondNumber')
-let btnCal = document.getElementById('click')
-let output = document.getElementById('output')
+let firstNumInput = document.getElementById('firstNumber');
+let secondNumInput = document.getElementById('secondNumber');
+let btnCal = document.getElementById('click');
+let results = document.getElementById('output');
 
-function addNumbers() {
-    let firstNum = parseInt(document.getElementById('firstNumber').value);
-    let secondNum = parseInt(document.getElementById('secondNumber').value);
- 
+function add() {
+    let firstNum = firstNumInput.value;
+    let secondNum = secondNumInput.value;
     return new Promise((resolve, reject) => {
-        if (Number.isNaN(firstNum) || Number.isNaN(secondNum)) {
-            reject(new Error(`Either ${firstNum} or ${secondNum} (is or are) not number(s)`));
+        // Check if the input values are numbers
+        if (!isNumeric(firstNum) || !isNumeric(secondNum)) {
+            reject(new Error('Please enter valid numeric values.'));
         } else {
-            resolve(firstNum + secondNum);
+            // Parse the input values as integers and resolve the promise
+            resolve(parseInt(firstNum) + parseInt(secondNum));
         }
     });
- }
- 
- btnCal.addEventListener('click', function() {
-    addNumbers()
+}
+
+// Utility function to check if a value is a numeric string or a number
+function isNumeric(value) {
+    return !isNaN(value) && (typeof value === 'number' || !isNaN(parseFloat(value)));
+}
+
+btnCal.addEventListener('click', function() {
+    add()
         .then(result => {
-            document.getElementById('output').innerHTML = result;
+            results.innerHTML = result;
         })
         .catch(error => {
-            document.getElementById('output').innerHTML = error.message;
+            results.innerHTML = error.message;
+            // Focus on the first input for better user experience
+            firstNumInput.focus();
         });
- });
+});
