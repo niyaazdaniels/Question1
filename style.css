@@ -8,28 +8,45 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
-    background: linear-gradient(90deg,blue 20%, grey 80% );
+    height: 90vh;
+    background: linear-gradient(90deg,rgb(85, 85, 117) 20%, grey 80% );
 }
 .container{
     text-align: center;
     padding: 30px;
     margin: 10px;
     background: linear-gradient(whitesmoke, grey);
-    box-shadow: 10px 10px 10px;
-    border-radius: 20px;
-
+    box-shadow: 0px 0px 13px blue;
+    border-radius:15px;
+    width: 300px;
 }
 #click {
     border: none;
     cursor: pointer;
+    outline: none;
+    padding: 5px;
     background: transparent;
     margin-top: 20px;
     font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
 }
 #click:hover{
     transform: rotateZ('90deg');  
     transition: all 1s ease-in;  
+}
+#click::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, black);
+    animation: click-fadein 2s forwards;
+}
+@keyframes click-fadein {
+    100% {transform: translateX(100%);}
 }
 input{
     font-size: 0.9rem;
@@ -38,6 +55,7 @@ input{
     border-bottom: 2px solid black;
     background: transparent;
     outline: none;
+    text-align: center;
 }
 #output{
     padding: 30px;
